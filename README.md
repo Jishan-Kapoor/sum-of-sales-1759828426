@@ -17,20 +17,21 @@ To deploy the application on GitHub Pages, follow these steps:
   - Fetches data from `data.csv` automatically.
   - Calculates the total sales amount.
   - Displays the total sales in the element with id `total-sales`.
+  - Displays a Bootstrap table `#product-sales` listing each product with its sales.
 
 ## Code Explanation
 The implementation involves:
-- Utilizing HTML to structure the page and display the total sales.
-- Using JavaScript to fetch the data, calculate the total, and update the DOM.
+- Utilizing HTML to structure the page and display the total sales and product sales.
+- Using JavaScript to fetch the data, calculate the total and individual product sales, and update the DOM.
 - Bootstrap 5 from jsDelivr is included to enhance the visual presentation.
 
 ### Libraries Used
 - Bootstrap 5 from jsDelivr
 
 ### JavaScript Logic
-- Fetches `data.csv` using `fetch` API.
-- Parses the CSV data to calculate the sum of the sales column.
-- Updates the DOM to display the total sales amount.
+- Fetches `data.csv` using the `fetch` API.
+- Parses the CSV data to calculate the sum of the sales column and individual product sales.
+- Updates the DOM to display the total sales amount and product sales in the table.
 
 ## License
 This project is licensed under the MIT License.
