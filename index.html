@@ -15,6 +15,19 @@
         <div id="total-sales" class="text-center"></div>
     </div>
 
+    <div class="container mt-5">
+        <h2 class="text-center">Product Sales</h2>
+        <table id="product-sales" class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Sales</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
     <script>
         fetch('data.csv')
             .then(response => response.text())
@@ -23,9 +36,19 @@
                 let total = 0;
                 for (let i = 1; i < lines.length; i++) {
                     const cols = lines[i].split(',').map(c => c.trim());
-                    if (cols.length > 1) {
-                        const val = parseFloat(cols[1]);
-                        if (!isNaN(val)) total += val;
+                    if (cols.length >= 2) {
+                        const product = cols[0];
+                        const sales = parseFloat(cols[1]);
+                        if (!isNaN(sales)) {
+                            total += sales;
+
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${product}</td>
+                                <td>$${sales.toFixed(2)}</td>
+                            `;
+                            document.querySelector('#product-sales tbody').appendChild(row);
+                        }
                     }
                 }
                 if (!isNaN(total)) {
